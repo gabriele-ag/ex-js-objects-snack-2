@@ -11,7 +11,7 @@ secondBurger.weight = 500;
 console.log(hamburger.name); // Double Cheese Burger
 console.log(secondBurger.name); // Double Cheese Burger
 
-// Un oggetto in quanto secondBurger è solo una reference di hamburger e viene creato in memoria un solo oggetto
+// Un oggetto, in quanto secondBurger è solo una reference di hamburger e viene creato in memoria un solo oggetto
 
 
 // Code question 2
@@ -115,9 +115,9 @@ const secondBurger = {...hamburger};
 secondBurger.maker.restaurant = newRestaurant;
 secondBurger.maker.name = "Chef Hyur";
 
-console.log(hamburger.maker.name); // Anonymous Chef
+console.log(hamburger.maker.name); // Chef Hyur
 console.log(secondBurger.maker.name); // Chef Hyur
-console.log(hamburger.maker.restaurant.name); // Hyur's Burgers
+console.log(hamburger.maker.restaurant.name); // Hyur's II
 console.log(secondBurger.maker.restaurant.name); // Hyur's II
 
 // Vengono creati cinque oggetti in memoria
@@ -150,6 +150,27 @@ const chef = {
 
 // A primo sguardo avrei risposto structuredClone ma non mi copierebbe le funzioni. Lo spread copia le funzioni ma non oggetti annidati se non per riferimento. 
 // In questo caso c'è bisogno di una funzione che permetta di fare le copie di tutti i dati all'interno di chef
+
+// SNACK BONUS
+
+function customClone(obj) {
+    if(obj === null || typeof obj !== 'object') {
+        return obj
+    }
+
+    const clone = {}
+    for (const key in obj) {
+        const value = obj[key];
+        if(typeof value !== 'object') {
+            clone[key] = obj[key];
+        } else {
+            clone[key] = customClone(value);
+        }
+    }
+}
+
+const chefCopy = customClone(chef)
+console.log(chefCopy)
 
 
 
