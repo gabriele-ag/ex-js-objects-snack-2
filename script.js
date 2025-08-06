@@ -86,7 +86,7 @@ const restaurant = {
 };
 
 // Il metodo migliore per clonare chef è lo Spread perchè permette di copiare le funzioni
-// Il metodo migliore per clonare restaurant è structuredClone che permette di fai una copia con oggetti complessi
+// Il metodo migliore per clonare restaurant è structuredClone che permette di fare una copia con oggetti complessi
 
 
 // Code question 5
@@ -121,4 +121,37 @@ console.log(hamburger.maker.restaurant.name); // Hyur's Burgers
 console.log(secondBurger.maker.restaurant.name); // Hyur's II
 
 // Vengono creati cinque oggetti in memoria
+
+// Code question 6
+
+// Qual è il metodo migliore per clonare l’oggetto chef, e perché?
+
+const chef = {
+	name: "Chef Hyur",
+	age: 29,
+	makeBurger: (num = 1) => {
+		console.log(`Ecco ${num} hamburger per te!`);
+	},
+	restaurant: {
+		name: "Hyur's Burgers",
+		welcomeClient: () => {
+			console.log("Benvenuto!");
+		},
+		address: {
+			street: 'Main Street',
+			number: 123,
+			showAddress: () => {
+				console.log("Main Street 123");
+			}
+		},
+		isOpen: true,
+	}
+}
+
+// A primo sguardo avrei risposto structuredClone ma non mi copierebbe le funzioni. Lo spread copia le funzioni ma non oggetti annidati se non per riferimento. 
+// In questo caso c'è bisogno di una funzione che permetta di fare le copie di tutti i dati all'interno di chef
+
+
+
+
 
