@@ -88,4 +88,37 @@ const restaurant = {
 // Il metodo migliore per clonare chef è lo Spread perchè permette di copiare le funzioni
 // Il metodo migliore per clonare restaurant è structuredClone che permette di fai una copia con oggetti complessi
 
+
 // Code question 5
+
+// Senza lanciare il codice, riesci a prevedere cosa viene stampato in console?
+// Quanti oggetti sono stati creati in memoria durante l'esecuzione di questo codice?
+
+const hamburger = { 
+	name: "Cheese Burger", 
+	weight: 250,
+	maker: {
+		name: "Anonymous Chef",
+		restaurant: {
+			name: "Hyur's Burgers",
+			address: "Main Street, 123",
+			isOpen: true,
+		},
+		age: 29
+	}
+};
+
+const newRestaurant = {...hamburger.maker.restaurant};
+newRestaurant.name = "Hyur's II";
+newRestaurant.address = "Second Street, 12";
+const secondBurger = {...hamburger};
+secondBurger.maker.restaurant = newRestaurant;
+secondBurger.maker.name = "Chef Hyur";
+
+console.log(hamburger.maker.name); // Anonymous Chef
+console.log(secondBurger.maker.name); // Chef Hyur
+console.log(hamburger.maker.restaurant.name); // Hyur's Burgers
+console.log(secondBurger.maker.restaurant.name); // Hyur's II
+
+// Vengono creati cinque oggetti in memoria
+
