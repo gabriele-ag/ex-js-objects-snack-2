@@ -57,3 +57,35 @@ const secondBurger = structuredClone(hamburger);
 const thirdBurger = structuredClone(hamburger);
 
 // Vengono generati nove oggetti, tre per ciascun hamburger
+
+
+
+// Code question 4
+
+
+// Qual è il metodo migliore per clonare l’oggetto chef, e perché?
+// Qual è il metodo migliore per clonare l’oggetto restaurant, e perché?
+
+
+const chef = {
+	name: "Chef Hyur",
+	age: 29,
+	makeBurger: (num = 1) => {
+		console.log(`Ecco ${num} hamburger per te!`);
+	},
+}
+
+const restaurant = {
+	name: "Hyur's Burgers",
+	address: {
+		street: 'Main Street',
+		number: 123,
+	},
+	openingDate: new Date(2025, 3, 11),
+	isOpen: false,
+};
+
+// Il metodo migliore per clonare chef è lo Spread perchè permette di copiare le funzioni
+// Il metodo migliore per clonare restaurant è structuredClone che permette di fai una copia con oggetti complessi
+
+// Code question 5
